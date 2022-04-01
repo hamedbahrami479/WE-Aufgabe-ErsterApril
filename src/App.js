@@ -12,9 +12,11 @@ function App() {
     setInput(input);
   }
 
-  function addToDo() {
-    const addNewToDo = [...toDos, { text: input, status: true }];
+  function addToDo(event) {
+    const addNewToDo = [...toDos, { text: input, status: false }];
     setToDos(addNewToDo);
+    event.target.value = "";
+    console.log(event);
   }
 
   function removeToDo(toDoIndex) {
@@ -22,15 +24,24 @@ function App() {
     setToDos(deleteToDo);
   }
 
+  function toggleStatus(toDoIndex) {
+    const newToDoStatus = [...toDos];
+    newToDoStatus[toDoIndex].status = !newToDoStatus[toDoIndex].status;
+    setToDos(newToDoStatus);
+  }
+
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <input onChange={handleOnChange} placeholder="Test"></input>
-      <button onClick={addToDo}>Add To-do</button>
+      <input onChange={handleOnChange} value={input} placeholder="Test"></input>
+      <button onClick={(event) => addToDo(event)}>Add To-do</button>
       <ul>
         {toDos.map((toDo, index) => (
           <li key={index}>
             <p>
+              <button onClick={() => toggleStatus(index)}>
+                {toDo.status ? "Done" : "Pending"}
+              </button>
               {toDo.text}
               <button onClick={() => removeToDo(index)}>X</button>
             </p>
