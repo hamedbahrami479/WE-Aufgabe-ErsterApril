@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+export default App;
 
 function App() {
   const [toDos, setToDos] = useState([]);
@@ -16,7 +17,10 @@ function App() {
     setToDos(addNewToDo);
   }
 
-  console.log(toDos);
+  function removeToDo(toDoIndex) {
+    const deleteToDo = toDos.filter((toDo, index) => index !== toDoIndex);
+    setToDos(deleteToDo);
+  }
 
   return (
     <div className="App">
@@ -27,7 +31,8 @@ function App() {
         {toDos.map((toDo, index) => (
           <li key={index}>
             <p>
-              {toDo.text} <button>X</button>
+              {toDo.text}
+              <button onClick={() => removeToDo(index)}>X</button>
             </p>
           </li>
         ))}
@@ -35,5 +40,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
