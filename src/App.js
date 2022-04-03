@@ -21,7 +21,7 @@ function App() {
   }
 
   function removeToDo(toDoIndex) {
-    const deleteToDo = toDos.filter((_toDo, index) => index !== toDoIndex);
+    const deleteToDo = toDos.filter((toDo, index) => index !== toDoIndex);
     setToDos(deleteToDo);
   }
 
