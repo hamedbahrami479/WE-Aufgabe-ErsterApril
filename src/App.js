@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./App.css";
 export default App;
 
@@ -20,7 +21,7 @@ function App() {
   }
 
   function removeToDo(toDoIndex) {
-    const deleteToDo = toDos.filter((toDo, index) => index !== toDoIndex);
+    const deleteToDo = toDos.filter((_toDo, index) => index !== toDoIndex);
     setToDos(deleteToDo);
   }
 
@@ -30,11 +31,33 @@ function App() {
     setToDos(newToDoStatus);
   }
 
+
+
+
+function filterToDos (toDoIndex){
+   toDos.filteer((todo, index) => {})
+}
+
+
+
+
+
+
+
+
+
   return (
     <div className="App">
       <h1>Hello World</h1>
       <input onChange={handleOnChange} value={input} placeholder="new ToDo"></input>
       <button onClick={addToDo}>Add To-do</button>
+      <form class="form" action="">
+      <select id="header__filter">
+        <option value="All">All</option>
+        <option status= {false} >Pending</option>
+        <option status={true}>Done</option>
+      </select>
+      </form>
       <ul>
         {toDos.map((toDo, index) => (
           <li key={index}>
