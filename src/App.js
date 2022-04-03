@@ -17,11 +17,7 @@ function App() {
   function addToDo(event) {
     const addNewToDo = [...toDos, { text: input, status: false }];
     setToDos(addNewToDo);
-<<<<<<< HEAD
-    event.target.value = "";
-=======
     setInput("")
->>>>>>> 64861e3c87616f717dfef8176d9f1a11c9b5d417
   }
 
   function removeToDo(toDoIndex) {
