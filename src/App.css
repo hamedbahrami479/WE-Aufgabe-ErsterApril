@@ -1,11 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App {
   text-align: center;
+  margin: 0 auto;
+}
+
+.Header {
+  background-color: #939f5c;
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+input {
+  color: black;
+  margin-right: 0.5rem;
+  padding: 1rem 1rem;
+}
+
+.addButton {
+  background-color: #e2f9b8;
+  border-radius: 30%;
+  color: black;
+  padding: 1rem 1rem;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.removeButton {
+  background: none;
+  color: crimson;
+  border: 2px solid crimson;
+  border-radius: 1rem;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 1rem 1rem;
+}
+
+.statusButton {
+  background: none;
+  border: 2px solid #d16014;
+  border-radius: 1rem;
+  color: #d16014;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  padding: 1rem 1rem;
+}
+
+.statusButton--done {
+  background-color: #bbce8a;
+}
+
+.toDoContainer {
+  background-color: #bbce8a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 1rem solid #313715;
+  margin: 2rem 3rem;
+  opacity: 0.8;
+  transition: 0.2s;
 }

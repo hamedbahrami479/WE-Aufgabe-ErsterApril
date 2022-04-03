@@ -32,22 +32,44 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <input onChange={handleOnChange} value={input} placeholder="Test"></input>
-      <button onClick={(event) => addToDo(event)}>Add To-do</button>
-      <ul>
-        {toDos.map((toDo, index) => (
-          <li key={index}>
-            <p>
-              <button onClick={() => toggleStatus(index)}>
-                {toDo.status ? "Done" : "Pending"}
-              </button>
-              {toDo.text}
-              <button onClick={() => removeToDo(index)}>X</button>
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div className="Header">
+        <h1>To-Do List App</h1>
+        <input
+          onChange={handleOnChange}
+          value={input}
+          placeholder="Set a new To-do"
+        ></input>
+        <button className="addButton" onClick={(event) => addToDo(event)}>
+          Add
+        </button>
+      </div>
+      <div>
+        <ul>
+          {toDos.map((toDo, index) => (
+            <li className="toDoContainer" key={index}>
+              <div>
+                <button
+                  className={`statusButton ${
+                    toDo.status ? "" : "statusButton--done"
+                  }`}
+                  onClick={() => toggleStatus(index)}
+                >
+                  {toDo.status ? "Done" : "Pending"}
+                </button>
+              </div>
+              <div>{toDo.text}</div>
+              <div>
+                <button
+                  className="removeButton"
+                  onClick={() => removeToDo(index)}
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
