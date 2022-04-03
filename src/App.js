@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import "./App.css";
 export default App;
 
@@ -6,6 +7,7 @@ function App() {
   const [toDos, setToDos] = useState([]);
 
   const [input, setInput] = useState("");
+
 
   function handleOnChange(event) {
     const input = event.target.value;
@@ -15,7 +17,11 @@ function App() {
   function addToDo(event) {
     const addNewToDo = [...toDos, { text: input, status: false }];
     setToDos(addNewToDo);
+<<<<<<< HEAD
     event.target.value = "";
+=======
+    setInput("")
+>>>>>>> 64861e3c87616f717dfef8176d9f1a11c9b5d417
   }
 
   function removeToDo(toDoIndex) {
@@ -29,11 +35,33 @@ function App() {
     setToDos(newToDoStatus);
   }
 
+
+
+
+function filterToDos (toDoIndex){
+   toDos.filteer((todo, index) => {})
+}
+
+
+
+
+
+
+
+
+
   return (
     <div className="App">
       <h1>Hello World</h1>
-      <input onChange={handleOnChange} value={input} placeholder="Test"></input>
-      <button onClick={(event) => addToDo(event)}>Add To-do</button>
+      <input onChange={handleOnChange} value={input} placeholder="new ToDo"></input>
+      <button onClick={addToDo}>Add To-do</button>
+      <form class="form" action="">
+      <select id="header__filter">
+        <option value="All">All</option>
+        <option status= {false} >Pending</option>
+        <option status={true}>Done</option>
+      </select>
+      </form>
       <ul>
         {toDos.map((toDo, index) => (
           <li key={index}>
